@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summarization Report</title>
+</head>
+<body>
+    <h1>Summarization Report</h1>
+    <h2>PDF: {{ pdf_name }}</h2>
+    <div>
+        <h3>Summary:</h3>
+        <p>{{ summary }}</p>
+    </div>
+    <a href="{% url 'chat' pdf_name=pdf_name %}">Go back to chat</a>
+</body>
+</html>
