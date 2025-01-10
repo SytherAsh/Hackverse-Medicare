@@ -20,8 +20,8 @@ def get_response(request):
             user_message = data.get('message', '')
             
             client = Groq(
-                # api_key=os.getenv('GROQ_API_KEY')
-                api_key="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"
+                api_key=os.getenv('GROQ_API_KEY')
+                # api_key="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"
             )
 
             chat_completion = client.chat.completions.create(
