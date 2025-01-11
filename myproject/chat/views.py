@@ -4,10 +4,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from groq import Groq
-from dotenv import load_dotenv
-load_dotenv()
-groq_api=os.getenv("GROQ_API_KEY")
-
 
 def chat_view(request):
     return render(request, 'chat/chat.html')
@@ -20,8 +16,8 @@ def get_response(request):
             user_message = data.get('message', '')
             
             client = Groq(
-                api_key=os.getenv('GROQ_API_KEY')
-                # api_key="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"
+                # api_key=os.getenv('GROQ_API_KEY')
+                api_key="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"
             )
 
             chat_completion = client.chat.completions.create(

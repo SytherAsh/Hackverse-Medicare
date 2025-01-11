@@ -23,11 +23,10 @@ function Chatbot() {
     setInput('');
 
     try {
-      const response = await axios.post('http://10.240.13.126:8000/api/chat/', { 
+      const response = await axios.post("http://127.0.0.1:8000", {
         question: input,
         session_id: sessionId,
-      } 
-    );
+      });
       const botResponse = response.data.response;
       setMessages([...newMessages, { role: 'assistant', content: botResponse }]);
 
