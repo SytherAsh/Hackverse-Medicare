@@ -81,7 +81,7 @@ function Dashboard() {
 
   return (
     <div className={`flex ${theme === "light" ? "" : "bg-black text-white"}`}>
-      <QuizPopup />
+      {/* <QuizPopup /> */}
       <SideBarComp />
       <div
         className={`p-4 w-full overflow-hidden mt-[76px] ${
@@ -102,9 +102,13 @@ function Dashboard() {
         </div>
 
         <h3 className="text-2xl font-bold mb-4">Our Features</h3>
-        <button className="p-3 mb-5 bg-gray-500" onClick={() => handleClick()}>
-          Generate Report
+        <button 
+          className="p-3 px-6 mb-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:from-blue-600 hover:to-purple-700 transition-transform transform hover:scale-105"
+          onClick={() => handleClick()}
+        >
+          Upload Report
         </button>
+
 
         <div
           className={`grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-4 ${
@@ -112,7 +116,7 @@ function Dashboard() {
           }`}
         >
           <Link
-            to="/map"
+            to="/product"
             className="bg-yellow-100 p-4 rounded-3xl flex items-center justify-center shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
             <div className="text-left flex-1 ml-8">
@@ -130,7 +134,7 @@ function Dashboard() {
             className="bg-green-100 p-4 rounded-3xl flex items-center justify-between shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
             <div className="text-left flex-1 ml-8">
-              <h4 className="text-xl font-semibold">Therapy Time</h4>
+              <h4 className="text-xl font-semibold">Report Analysis</h4>
             </div>
             <img src={c1} alt="Practice DOST" className="w-56 h-56 mx-4" />
           </Link>

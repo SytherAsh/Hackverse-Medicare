@@ -21,9 +21,9 @@ function SideBarComp() {
             <div className="flex">
                 <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar}>
                     <SidebarItem icon={<FaHome size={25} className="rounded-md p-1 text-[#cfc2cb] my-1" />} text="Home" to="/dashboard" active />
-                    <SidebarItem icon={<LiaUserFriendsSolid size={20} className="rounded-md text-[#cfc2cb] my-1" />} text="EventExpress" to="/event" alert />
-                    <SidebarItem icon={<IoDocumentText size={20} className="rounded-md text-[#cfc2cb] my-1" />} text="TherapyTime" to="/booking" />
-                    <SidebarItem icon={<FaFileVideo size={20} className="rounded-md text-[#cfc2cb] my-1" />} text="WellnessPlanning" to="/wellness" />
+                    <SidebarItem icon={<LiaUserFriendsSolid size={20} className="rounded-md text-[#cfc2cb] my-1" />} text="hospitals near me" to="/map" alert />
+                    <SidebarItem icon={<IoDocumentText size={20} className="rounded-md text-[#cfc2cb] my-1" />} text="TherapyTime" to="/pixel" />
+                    <SidebarItem icon={<FaFileVideo size={20} className="rounded-md text-[#cfc2cb] my-1" />} text="MyDoctor" to="/joinroom" />
                     <hr className="my-3" />
                     <SidebarItem icon={<IoSettings size={20} />} text="Settings" to="/dashboard/settings" />
                     <SidebarItem icon={<IoMdHelp size={20} />} text="Help" to="/dashboard/help" />
