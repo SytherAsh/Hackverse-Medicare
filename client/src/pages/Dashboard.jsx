@@ -81,7 +81,7 @@ function Dashboard() {
 
   return (
     <div className={`flex ${theme === "light" ? "" : "bg-black text-white"}`}>
-      <QuizPopup />
+      {/* <QuizPopup /> */}
       <SideBarComp />
       <div
         className={`p-4 w-full overflow-hidden mt-[76px] ${
