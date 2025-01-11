@@ -170,15 +170,24 @@ function Dashboard() {
           <button
             onClick={() => {
               fetch("http://127.0.0.1:8000/chatbot/handle-button-click/", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ action: "click" }),
-              })
-                .then((response) => response.json())
-                .then((data) => console.log("Response:", data))
-                .catch((error) => console.error("Error:", error));
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ action: "click" }),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Response:", data);
+    if (data.message === "Button clicked!") {
+      // Open a new window or redirect
+      window.open("http://127.0.0.1:8000/chatbot/upload", "_blank");
+    } else {
+      console.error("Unexpected response:", data);
+    }
+  })
+  .catch((error) => console.error("Error:", error));
+
             }}
             className="fixed bottom-4 right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300"
           >
