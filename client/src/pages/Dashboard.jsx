@@ -101,13 +101,13 @@ function Dashboard() {
           </div>
         </div>
 
-        <h3 className="text-2xl font-bold mb-4">Our Features</h3>
-        <button 
+        {/* <h3 className="text-2xl font-bold mb-4">Our Features</h3> */}
+        {/* <button 
           className="p-3 px-6 mb-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:from-blue-600 hover:to-purple-700 transition-transform transform hover:scale-105"
           onClick={() => handleClick()}
         >
           Upload Report
-        </button>
+        </button> */}
 
 
         <div
@@ -116,7 +116,7 @@ function Dashboard() {
           }`}
         >
           <Link
-            to="/product"
+            to="/map"
             className="bg-yellow-100 p-4 rounded-3xl flex items-center justify-center shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
             <div className="text-left flex-1 ml-8">

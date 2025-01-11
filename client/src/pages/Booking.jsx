@@ -102,11 +102,11 @@ function Dashboard() {
           }`}
         >
           <Link
-            to="/product"
+            to="/equipments"
             className="bg-yellow-100 p-4 rounded-3xl flex items-center justify-center shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
             <div className="text-left flex-1 ml-8">
-              <h4 className="text-xl font-semibold ml-10">Hospitals near me</h4>
+              <h4 className="text-xl font-semibold ml-10">Equipment Suggestion</h4>
             </div>
             <img
               src={c2}
@@ -116,11 +116,11 @@ function Dashboard() {
           </Link>
 
           <Link
-            to="/booking"
+            to="/planner"
             className="bg-green-100 p-4 rounded-3xl flex items-center justify-between shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
             <div className="text-left flex-1 ml-8">
-              <h4 className="text-xl font-semibold">Report Analysis</h4>
+              <h4 className="text-xl font-semibold">Diet Planner</h4>
             </div>
             <img src={c1} alt="Practice DOST" className="w-56 h-56 mx-4" />
           </Link>
@@ -130,7 +130,7 @@ function Dashboard() {
             className="bg-purple-100 p-4 rounded-3xl flex items-center justify-between  shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
             <div className="text-left flex-1 ml-2">
-              <h4 className="text-xl font-semibold ">EventExpress</h4>
+              <h4 className="text-xl font-semibold ">Report Summary</h4>
             </div>
             <img src={c2} alt="Connect" className="w-56 h-56 mr-32" />
           </Link>
