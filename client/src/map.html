@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Hospitals</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB29AzocMxnxp1-fRoqn-5LMjbNZHdntpU&libraries=places"></script>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #e2ebf0, #d7e1ec);
+        }
+
+        /* Container for Map and Search Bar */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .container:hover {
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.25);
+            transform: translateY(-5px);
+        }
+
+        /* Styling for Search Bar */
+        #searchTextField {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid #ccd1d6;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        #searchTextField:focus {
+            border-color: #9ab5d5;
+        }
+
+        /* Styling for Map */
+        #map {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        #map:hover {
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input id="searchTextField" type="text" placeholder="Search nearby hospitals">
+        <div id="map"></div>
+    </div>
+    <script>
+        var map;
+        var service;
+        var infowindow;
+
+        function initialise() {
+            var pyrmont = new google.maps.LatLng(23.223351, 72.647713);
+            
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: pyrmont,
+                zoom: 15
+            });
+
+            var input = document.getElementById('searchTextField');
+            let autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+
+            let marker = new google.maps.Marker({
+                map: map
+            });
+
+            google.maps.event.addListener(autocomplete, 'place_changed', () => {
+                let place = autocomplete.getPlace();
+                
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);
+                }
+
+                marker.setPosition(place.geometry.location);
+                marker.setVisible(true);
+
+                let request = {
+                    location: place.geometry.location,
+                    radius: '500',
+                    type: ['hospital']
+                };
+
+                service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, callback);
+            });
+        }
+
+        function callback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (let i = 0; i < results.length; i++) {
+                    let place = results[i];
+                    let marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+
+                    let infowindow = new google.maps.InfoWindow({
+                        content: place.name
+                    });
+
+                    marker.addListener('click', () => {
+                        infowindow.open(map, marker);
+                    });
+                }
+            }
+        }
+        google.maps.event.addDomListener(window, 'load', initialise);
+    </script>
+</body>
+</html>

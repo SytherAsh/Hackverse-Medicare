@@ -1,0 +1,211 @@
+/* Global Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.dashboard {
+    padding: 20px;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007acc;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.navbar .left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .left img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar .right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.navbar button:hover {
+    background-color: #003e80;
+    transform: scale(1.05);
+}
+
+.dashboard-content {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 100px); /* Full height minus navbar and padding */
+}
+
+.left-div, .right-div {
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%; /* Full height */
+}
+
+.left-div {
+    flex: 70%;
+    background-color: #e9e9e9;
+    overflow-y: auto; /* Scrollable if content overflows */
+}
+
+.right-div {
+    flex: 30%;
+    background-color: #e9e9e9;
+    position: sticky;
+    top: 20px;
+}
+
+/* Event Item */
+.event-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-item h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.event-item p {
+    color: #555;
+}
+
+/* Edit and Delete buttons */
+.event-item .edit-button,
+.event-item .delete-button,
+.event-item .save-button,
+.event-item .Cancel {
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.event-item .edit-button {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.event-item .delete-button {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.event-item .save-button {
+    background-color: #007acc;
+    color: #fff;
+}
+
+.event-item .Cancel {
+    background-color: #25a9d5;
+    color: #fff;
+}
+
+.event-item button:hover {
+    transform: scale(1.05);
+}
+
+.event-item .edit-button:hover {
+    background-color: #45a049;
+}
+
+.event-item .delete-button:hover {
+    background-color: #d32f2f;
+}
+
+.event-item .save-button:hover {
+    background-color: #0056b3;
+}
+
+.event-item .Cancel:hover {
+    background-color: #0e9a6c;
+}
+
+/* Input fields */
+.event-item input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.event-item input[type="text"]:focus {
+    border-color: #007acc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar .left {
+        margin-bottom: 10px;
+    }
+
+    .navbar .right {
+        margin-top: 10px;
+    }
+
+    .dashboard-content {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+    }
+
+    .left-div,
+    .right-div {
+        flex: 100%;
+        padding: 15px;
+        height: auto;
+    }
+
+    .right-div {
+        position: static;
+    }
+
+    .left-div {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .event-item {
+        padding: 10px;
+    }
+}

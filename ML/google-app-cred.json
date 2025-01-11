@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "celtic-house-441204-k8",
+  "private_key_id": "6d812a05edb561d7de6c21330c18bee560719c1c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDy+T+T8TzBFEx7\nwyosyxnfiwY0e1G+JtqUaLlCEhU6BbKXffWbgg9u03pXfROZOj3XF0idG+U58+fa\nr6p3AEg4nYEgyQI58bfR5SnuennoIkbi/c0MuQ34D/3ueDdOq+YpYBgWvCCJ7bSZ\nP3caMHC9b8wtl9Ytdgerkuhhw1qG1bgGyk7zXIf2A5fQukhyUfu3+lSKWdATcGyG\nJsFMNd3U9ObCdQiUMA2/Rrc1b9Q5ZZk+IKQIVoeXPs3HIpfQTetXBg0EhIudYkmP\no1AQBNGXU7Df4b77aOk0K2NHSOpPwxCJ9otA3CtWKgvbfmBEfIZcjk8AcN7umb2e\nS0PIxcAzAgMBAAECggEAUp1MMFXwpefsf5JjBzsBr6AaOoMJzsFwRdD72MrEO+fP\nCzKRbdBBxhmS+id1n/6NI1Lv5jejb9qOZa2gJPlMFS/8xXSDVMdrDKvCX6t2QudQ\nugK5E0/iv4tUeJ6Yk5/gUQYy+pv55lwUMZ1CNn3s/4SBZKlBclC1F/IKIJ+narub\nzZ8EQ5WVXS4K1cyN8T1VGQ+XoZ+/CMXJEmmb5A0emUdb4pxd0pqFvTayYZZQOGgE\n9ya7DMyZ5T8bmT79uUAKfSXzN4HxcDvmmK9MXNG1V+/UIaTrY+yfPglDgl6ajf0d\nwrEeQwGaBHckSTWYJhxlcFN2IXTFm2cROPu1CefN3QKBgQD6omLv400yrDwoE2y/\nlnBTaNAOkFJ2zb4zuNmYLYPfsi5sJjLA7SYNSqIQ/rhSgv5dZY9u/5qTKyVpStB7\nw6udOD45LE7O4Axfr0X+1tNes9W6MaA4xurYLkFGOAJsIheNq6Mkl1fGdM4JW+T0\n3McCJX2EkHg0di5vWWMop9CBTwKBgQD4LOCHSy44WJmdee5OHaG4mFxcNzAtKClq\nPVs95/tmv+m9jxWr59oqjUfVg320lgVKpBYYk8OdgN1COTANg4vsVFh3jzMls1qm\nEkVgBN5oyerEyYdVJtajuK2vNmoupkFSYOLeIi+yNpJ8B4Nkb2H6g3bNQ7PFC+7V\nhr3FcRox3QKBgBdyZ5UPi6JI8JvDLXJC7aEv9f7Wy5AnsTp/eYO+Bk9ACQ2/CRJ5\nXQzzRXQXkEDP1mIAZUm6CcjoyWgvQo/Bf2WG5HNOzNSXqzCsYfz0NfPvGPiBOf71\nxPSSZzLdfISHL/Ll8q4yplh/huLjQOkTWl6+CR8EsOofgDqUfy1Hfb8LAoGBAJeP\nGIOnRw/EE/QW3ZC5CeVorqbmUTaSm1A1Lj6NKHvkYcOQ2URFcHeiFidviNo67/pY\nYOIbg0/xva3OrOjj2BS4odpKCotQj+Bxsgpkjsrh3MzW4h3/fP85LmCdU5UvlR7Q\n6luL9yLXrvetwvEYEHbjyC6s1OFWW0HtaoFkhAHFAoGBANe1SCSJMEilA65UfFBG\nRUk1CLNmzUrSdka9tkPpW8KYk6qiDxP3N5k8ICsCCMrx0tqWFB+qO8PWtOdePPUa\neIgfw9+zOKpYZVdw4lQRiMBlRXkvzlX9vB6EGCjh43kDTPFsL9zsRzmuVZobWfkv\nPBGVI1uvvDg8dRo4KoYd7GmA\n-----END PRIVATE KEY-----\n",
+  "client_email": "aayushman-dash@celtic-house-441204-k8.iam.gserviceaccount.com",
+  "client_id": "110769217134823656400",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/aayushman-dash%40celtic-house-441204-k8.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
