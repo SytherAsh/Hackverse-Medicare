@@ -3,115 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary Page</title>
+    <title>Medical Report Summary</title>
     <style>
-        /* General Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f9fafc;
-            background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
-            color: #333;
+            background-color: #f4f7f9;
+            color: #2c3e50;
         }
-
-        /* Header Styling */
-        header {
-            background-color: #4caf50;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        header h1 {
-            font-size: 2rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        /* Main Section Styling */
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 25px;
-            background: #ffffff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-        }
-
-        main h1 {
-            color: #4caf50;
-            font-size: 1.8rem;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        main p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        pre {
-            background: #f4f4f4;
-            padding: 20px;
-            border: 1px solid #ddd;
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
             border-radius: 8px;
-            font-size: 1rem;
-            line-height: 1.5;
-            overflow-x: auto;
-            white-space: pre-wrap;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
         }
-
-        /* Button Styling */
-        a {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 20px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            text-transform: uppercase;
-            background-color: #4caf50;
-            border-radius: 25px;
-            transition: background-color 0.3s ease, transform 0.2s;
-            text-align: center;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        h1 {
+            font-size: 24px;
+            color: #34495e;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
         }
-
-        a:hover {
-            background-color: #43a047;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        h2 {
+            font-size: 20px;
+            color: #2980b9;
+            margin-bottom: 10px;
         }
-
-        /* Footer Styling */
+        .section {
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 5px;
+        }
+        .note {
+            font-style: italic;
+            background-color: #eaf2f8;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            border-radius: 4px;
+        }
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding: 15px 0;
-            font-size: 0.9rem;
-            color: #666;
-            background-color: #f4f4f4;
-            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #7f8c8d;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Summary Page</h1>
-    </header>
-    <main>
-        <h1>Summary Details</h1>
-        <p>Here is a summary of the details you provided:</p>
-        <!-- Displaying the summary -->
-        <pre>{{ summary|safe }}</pre>
-        <a href="/">Go Back to Home</a>
-    </main>
+    <div class="container">
+        <h1>Medical Report Summary</h1>
+
+        <div class="section">
+            <h2>Key Health Indicators</h2>
+            <ul>
+                <li><strong>Hemoglobin (Hb):</strong> 14.6 g/dL (Within normal range: 14-18 g/dL)</li>
+                <li><strong>Red Blood Cell Count (RBC):</strong> 5.31 million/cu.mm (Within normal range: 4.4-6.0 million/cu.mm)</li>
+                <li><strong>Platelet Count:</strong> 212 x 10<sup>3</sup>/µl (Within normal range: 140-440 x 10<sup>3</sup>/µl)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Diagnosed Conditions or Concerns</h2>
+            <ul>
+                <li><strong>RDW (Red Cell Distribution Width):</strong> 16.7% (Slightly elevated, may indicate variation in red blood cell size)</li>
+                <li><strong>Anisocytosis:</strong> Present (Indicates variation in red blood cell size)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Recommendations or Follow-ups</h2>
+            <ul>
+                <li>The report mentions that all abnormal haemograms are reviewed and confirmed microscopically.</li>
+                <li>It's likely the doctor will want to discuss these findings with you further.</li>
+            </ul>
+        </div>
+
+        <div class="section note">
+            <p><strong>Important Notes:</strong> While most of your blood cell counts are within normal ranges, the slightly elevated RDW and the presence of anisocytosis warrant further investigation. These could be signs of underlying conditions that your doctor will want to explore.</p>
+        </div>
+    </div>
+
     <footer>
-        © 2025 Summary Page. All rights reserved.
-    <
+        <p>&copy; 2025 Your Healthcare Provider. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

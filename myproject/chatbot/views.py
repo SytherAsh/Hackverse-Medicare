@@ -49,7 +49,7 @@ def upload_pdf(request):
             request.session['pdf_name'] = pdf_name
             
             # Redirect to the main page or another view
-            return redirect('/')
+            return redirect('http://localhost:5173/booking')
         
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)

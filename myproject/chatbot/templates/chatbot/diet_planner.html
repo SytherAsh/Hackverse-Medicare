@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -99,4 +99,122 @@
         © 2025 Diet Planner. All rights reserved.
     </footer>
 </body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dietary Advice</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #007BFF;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 20px;
+            color: #0056b3;
+            margin-top: 20px;
+        }
+        ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .note {
+            font-style: italic;
+            background-color: #eaf4fc;
+            border-left: 4px solid #007BFF;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dietary Advice Based on CBC Haemogram Results</h1>
+
+        <div class="section">
+            <h2>Why I Can't Provide a Specific Diet Plan</h2>
+            <ul>
+                {% comment %} <li><strong>I am not a medical professional:</strong> Providing dietary advice is the role of registered dietitians or doctors.</li> {% endcomment %}
+                <li><strong>CBC results are limited:</strong> While useful, they don't provide a full picture of your nutritional status or overall health.</li>
+                <li><strong>Individualized needs:</strong> Dietary recommendations depend on age, sex, activity level, health goals, and medical conditions.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>What the CBC Results Suggest</h2>
+            <ul>
+                <li><strong>RBC count:</strong> Slightly above the normal range.</li>
+                <li><strong>RDW (Red Cell Distribution Width):</strong> Elevated, indicating variation in red blood cell size.</li>
+            </ul>
+            <p>These findings could indicate:</p>
+            <ul>
+                <li><strong>Iron deficiency:</strong> Elevated RDW may suggest iron deficiency, even if haemoglobin levels are normal.</li>
+                <li><strong>Other conditions:</strong> Potential underlying issues affecting blood cell production.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>What You Should Do</h2>
+            <ul>
+                <li><strong>Consult a doctor:</strong> Discuss the results with your doctor, who may order further tests to investigate the cause.</li>
+                <li><strong>Seek a registered dietitian:</strong> A dietitian can create a personalized meal plan based on your individual needs.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>General Healthy Eating Tips</h2>
+            <ul>
+                <li><strong>Fruits and vegetables:</strong> Aim for at least five servings per day.</li>
+                <li><strong>Whole grains:</strong> Choose brown rice, quinoa, whole-wheat bread, and oatmeal.</li>
+                <li><strong>Lean proteins:</strong> Include fish, poultry, beans, lentils, and tofu.</li>
+                <li><strong>Healthy fats:</strong> Use olive oil, avocados, and nuts, and avoid saturated and trans fats.</li>
+                <li><strong>Stay hydrated:</strong> Drink plenty of water throughout the day.</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <p><strong>Important Notes:</strong> While the findings from your CBC haemogram are helpful, they are only part of the overall health picture. Always consult healthcare professionals for personalized advice and follow-up tests if necessary.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Healthcare Advisor. All Rights Reserved.</p>
+    </footer>
+</body>
 </html>
+
