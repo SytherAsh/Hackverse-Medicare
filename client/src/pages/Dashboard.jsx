@@ -1,27 +1,26 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import SideBarComp from '../components/SideBarComp';
-import { ThemeContext } from '../THemeContext';
-import QuizPopup from '../components/Quiz';
-import c1 from '../assets/c1.svg';
-import c2 from '../assets/c2.svg';
-import bg from '../assets/big.jpg';
-import { UserContext } from '../UserContext';
-import axios from 'axios';
-import Chatbot from '../components/Chatbot';
-import { CiMobile2 } from 'react-icons/ci';
+import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import SideBarComp from "../components/SideBarComp";
+import { ThemeContext } from "../THemeContext";
+import QuizPopup from "../components/Quiz";
+import c1 from "../assets/c1.svg";
+import c2 from "../assets/c2.svg";
+import bg from "../assets/big.jpg";
+import { UserContext } from "../UserContext";
+import axios from "axios";
+import Chatbot from "../components/Chatbot";
+import { CiMobile2 } from "react-icons/ci";
 import { BsBell } from "react-icons/bs";
-import MoodScoreGraph from '../components/MoodSchore';
-import vid from '../assets/siren-253181.mp3';
-
+import MoodScoreGraph from "../components/MoodSchore";
+import vid from "../assets/siren-253181.mp3";
 
 function Dashboard() {
   const { theme } = useContext(ThemeContext);
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [greeting, setGreeting] = useState('');
+  const [greeting, setGreeting] = useState("");
   const { user, ready } = useContext(UserContext);
-  const [thought, setThought] = useState('');
-  const [plan , setPlan] = useState('');
+  const [thought, setThought] = useState("");
+  const [plan, setPlan] = useState("");
 
   // console.log("dashboard",user);
 
@@ -29,7 +28,7 @@ function Dashboard() {
 
   useEffect(() => {
     const fetchThought = async () => {
-      const res = await axios.get('http://localhost:3500/api/affirmations');
+      const res = await axios.get("http://localhost:3500/api/affirmations");
       if (res.data) {
         setThought(res.data);
       }
@@ -48,25 +47,27 @@ function Dashboard() {
   };
 
   async function handleClick() {
-    const res = await axios.get(`http://10.240.13.126:8000/api/journals/report/${user._id}/`);
-    const emailres = await axios.post('http://localhost:3500/report',{summary:res.data.summary})
+    const res = await axios.get(
+      `http://10.240.13.126:8000/api/journals/report/${user._id}/`
+    );
+    const emailres = await axios.post("http://localhost:3500/report", {
+      summary: res.data.summary,
+    });
     if (res.data) {
       setPlan(res.data.summary);
-      
     }
   }
 
   async function callEmergency() {
-    const res = await axios.post('http://localhost:3500/call');
-    
-    
+    const res = await axios.post("http://localhost:3500/call");
+
     const messageData = {
-      contactNumbers: ['+919152602555'], // Replace with your contact numbers array
+      contactNumbers: ["+919152602555"], // Replace with your contact numbers array
       messageBody: "Emergency Alert! I need help. My current location is:",
     };
 
     if (res) {
-      alert('Emergency Call Initiated');
+      alert("Emergency Call Initiated");
       audio.play(); // Play the siren sound when emergency is called
     }
   }
@@ -102,13 +103,12 @@ function Dashboard() {
         </div>
 
         <h3 className="text-2xl font-bold mb-4">Our Features</h3>
-        <button 
+        {/* <button 
           className="p-3 px-6 mb-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:from-blue-600 hover:to-purple-700 transition-transform transform hover:scale-105"
           onClick={() => handleClick()}
         >
           Upload Report
-        </button>
-
+        </button> */}
 
         <div
           className={`grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-4 ${
@@ -174,24 +174,26 @@ function Dashboard() {
           <button
             onClick={() => {
               fetch("http://127.0.0.1:8000/chatbot/handle-button-click/", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ action: "click" }),
-})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("Response:", data);
-    if (data.message === "Button clicked!") {
-      // Open a new window or redirect
-      window.open("http://127.0.0.1:8000/chatbot/upload", "_blank");
-    } else {
-      console.error("Unexpected response:", data);
-    }
-  })
-  .catch((error) => console.error("Error:", error));
-
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ action: "click" }),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log("Response:", data);
+                  if (data.message === "Button clicked!") {
+                    // Open a new window or redirect
+                    window.open(
+                      "http://127.0.0.1:8000/chatbot/upload",
+                      "_blank"
+                    );
+                  } else {
+                    console.error("Unexpected response:", data);
+                  }
+                })
+                .catch((error) => console.error("Error:", error));
             }}
             className="fixed bottom-4 right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300"
           >

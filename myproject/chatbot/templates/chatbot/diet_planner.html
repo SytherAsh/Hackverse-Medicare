@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary Page</title>
+    <title>Diet Planner</title>
     <style>
-        /* General Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -15,7 +14,6 @@
             color: #333;
         }
 
-        /* Header Styling */
         header {
             background-color: #4caf50;
             color: white;
@@ -31,7 +29,6 @@
             letter-spacing: 1.5px;
         }
 
-        /* Main Section Styling */
         main {
             max-width: 900px;
             margin: 30px auto;
@@ -41,17 +38,10 @@
             border-radius: 12px;
         }
 
-        main h1 {
+        h1 {
             color: #4caf50;
             font-size: 1.8rem;
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        main p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
             margin-bottom: 20px;
         }
 
@@ -66,7 +56,6 @@
             white-space: pre-wrap;
         }
 
-        /* Button Styling */
         a {
             display: inline-block;
             margin-top: 25px;
@@ -89,30 +78,25 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Footer Styling */
         footer {
             text-align: center;
             margin-top: 40px;
-            padding: 15px 0;
             font-size: 0.9rem;
             color: #666;
-            background-color: #f4f4f4;
-            border-top: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Summary Page</h1>
+        <h1>Diet Planner</h1>
     </header>
     <main>
-        <h1>Summary Details</h1>
-        <p>Here is a summary of the details you provided:</p>
-        <pre>{{ summary_details }}</pre>
-        <a href="/">Go Back to Home</a>
+        <h1>Your Personalized Diet Plan</h1>
+        <pre>{{ diet_plan }}</pre>
+        <a href="/">Go Back to Upload Page</a>
     </main>
     <footer>
-        © 2025 Summary Page. All rights reserved.
+        © 2025 Diet Planner. All rights reserved.
     </footer>
 </body>
 </html>
