@@ -29,11 +29,11 @@ const Features = () => {
       hoverColor: "#f72585"
     },
     {
-      title: "Therapist Directory",
-      description: "Browse and connect with therapists and wellness providers.",
+      title: "Report Analysis",
+      description: "Plan you diet on the basis of your report",
       steps: [
-        "Search for therapists",
-        "Filter by specialization",
+        "Search for medical equipments",
+        "personlized diet plan",
       ],
       iconColor: "text-blue-500",
       hoverColor: "#4cc9f0"
@@ -49,21 +49,21 @@ const Features = () => {
       hoverColor: "#ff4d6d"
     },
     {
-      title: "Mental Health Chatbot",
+      title: "Report Analysis Chatbot",
       description: "AI chatbot offering instant support and guidance.",
       steps: [
         "Start a conversation",
-        "Get instant support",
+        "Get report summary",
       ],
       iconColor: "text-green-500",
       hoverColor: "#06d6a0"
     },
     {
-      title: "Appointment Booking & Video Consultation",
-      description: "Seamlessly book appointments and connect with doctors through secure video consultations.",
+      title: "Video Consultation",
+      description: "Seamlesslyconnect with doctors through secure video consultations.",
       steps: [
         "Select a doctor",
-        "Schedule an appointment",
+        "Have live conversation",
       ],
       iconColor: "text-purple-500",
       hoverColor: "#9b5de5"

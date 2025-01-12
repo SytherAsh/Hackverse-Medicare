@@ -18,6 +18,11 @@ import Event from './pages/Event'
 import EventsPage from './pages/EventPage'
 import CreateEvent from './pages/CreateEvent'
 import Wellness from './components/Wellness'
+import HealthcareHeader from './components/HealthcareHeader';
+import ProductList from './components/ProductList';
+import ProductDetail from './components/ProductDetail';
+import ProductCatalog from './components/ProductCatalog';
+import Cart from './components/Cart';
 
 function App() {
   const {user} = useContext(UserContext)
@@ -39,7 +44,9 @@ function App() {
       <Route path='/event/events' element={<EventsPage/>}/>
       <Route path='/create' element={<CreateEvent/>}/>
       <Route path='/wellness' element={<Wellness />} />
-      {/* <Route path="/product/:id" element={<ProductDetails />} /> */}
+      <Route path="/product/:id" element={<ProductDetail />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/products" element={<ProductCatalog />} />
     </Routes>
   )
 }

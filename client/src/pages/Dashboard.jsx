@@ -4,7 +4,7 @@ import SideBarComp from "../components/SideBarComp";
 import { ThemeContext } from "../ThemeContext";
 import { UserContext } from "../UserContext";
 import Chatbot from "../components/Chatbot";
-import MoodScoreGraph from "../components/MoodScore";
+// import MoodScoreGraph from "../components/MoodSchore";
 import { BsBell } from "react-icons/bs";
 import c1 from "../assets/c1.svg";
 import c2 from "../assets/c2.svg";
@@ -90,26 +90,26 @@ function Dashboard() {
           }`}
         >
           <Link
-            to="/map"
+            to="/booking"
             className="bg-yellow-100 p-4 rounded-3xl flex items-center justify-center shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
-            <h4 className="text-xl font-semibold ml-10">Hospitals near me</h4>
+            <h4 className="text-xl font-semibold ml-10">Report Analysis</h4>
             <img src={c2} alt="Hospitals" className="w-56 h-56 mx-4" />
           </Link>
 
           <Link
-            to="/booking"
+            to="/map"
             className="bg-green-100 p-4 rounded-3xl flex items-center justify-between shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
-            <h4 className="text-xl font-semibold">Report Analysis</h4>
+            <h4 className="text-xl font-semibold ">Hospitals Near Me</h4>
             <img src={c1} alt="Report Analysis" className="w-56 h-56 mx-4" />
           </Link>
 
           <Link
-            to="/event"
+            to="/products"
             className="bg-purple-100 p-4 rounded-3xl flex items-center justify-between shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
-            <h4 className="text-xl font-semibold">EventExpress</h4>
+            <h4 className="text-xl font-semibold">Equipments</h4>
             <img src={c2} alt="EventExpress" className="w-56 h-56 mr-32" />
           </Link>
         </div>
@@ -152,7 +152,7 @@ function Dashboard() {
         </div>
 
         {/* Mood Graph */}
-        <MoodScoreGraph />
+        {/* <MoodScoreGraph /> */}
       </div>
     </div>
   );

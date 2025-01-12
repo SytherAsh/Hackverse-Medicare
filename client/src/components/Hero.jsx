@@ -24,7 +24,7 @@ const Hero = ({ scrollToSection, refs }) => {
             <div className="absolute top-10 left-10  bg-opacity-80 p-8 rounded-lg max-w-xs">
                 {/* Text Content */}
                 <div className="mt-8">
-                    <h2 className="text-5xl mb-6 font-bold text-[#4f4f8b]">Mental Wellness</h2>
+                    <h2 className="text-5xl mb-6 font-bold text-[#4f4f8b]">Beyond Care</h2>
                     <p className="mt-2 text-[#6b6b7b] text-sm">
                     Transforming Healthcare and Wellness, Beyond Boundaries .Empowering you with comprehensive tools for your holistic well-being.
                     </p>
