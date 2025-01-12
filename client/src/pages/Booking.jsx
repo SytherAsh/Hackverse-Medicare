@@ -89,30 +89,12 @@ function Dashboard() {
         }`}
       >
         <button
-          onClick={() => {
-            fetch("http://127.0.0.1:8000/chatbot/handle-button-click/", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ action: "click" }),
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                console.log("Response:", data);
-                if (data.message === "Button clicked!") {
-                  // Open a new window or redirect
-                  window.open("http://127.0.0.1:8000/chatbot/upload", "_blank");
-                } else {
-                  console.error("Unexpected response:", data);
-                }
-              })
-              .catch((error) => console.error("Error:", error));
-          }}
+          onClick={() =>
+            window.open("http://127.0.0.1:8000/chatbot/upload", "_blank")
+          }
           className="p-3 px-6 mb-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:from-blue-600 hover:to-purple-700 transition-transform transform hover:scale-105"
         >
           upload report
-            
         </button>
 
         <div
@@ -120,67 +102,49 @@ function Dashboard() {
             theme === "light" ? "" : "text-black"
           }`}
         >
-          <Link
-            to="/planner"
+          <button
+            onClick={() =>
+              window.open("http://127.0.0.1:8000/chatbot/diet", "_blank")
+            }
             className="bg-yellow-100 p-4 rounded-3xl flex items-center justify-center shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
             <div className="text-left flex-1 ml-8">
               <h4 className="text-xl font-semibold ml-10">Diet Planner</h4>
             </div>
-            <img
-              src={c2}
-              alt="Study Material DOST"
-              className="w-56 h-56 mx-4"
-            />
-          </Link>
+            <img src={c2} alt="Diet Planner" className="w-56 h-56 mx-4" />
+          </button>
 
-          <Link
-            to="/booking"
+          <button
+            onClick={() =>
+              window.open("http://127.0.0.1:8000/chatbot/equipment", "_blank")
+            }
+            className="bg-purple-100 p-4 rounded-3xl flex items-center justify-between shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
+          >
+            <div className="text-left flex-1 ml-2">
+              <h4 className="text-xl font-semibold">equipment Suggestions</h4>
+            </div>
+            <img src={c2} alt="Connect" className="w-56 h-56 mr-32" />
+          </button>
+
+          <button
+            onClick={() =>
+              window.open("http://127.0.0.1:8000/chatbot/summary", "_blank")
+            }
             className="bg-green-100 p-4 rounded-3xl flex items-center justify-between shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
           >
             <div className="text-left flex-1 ml-8">
               <h4 className="text-xl font-semibold">Report Summary</h4>
             </div>
             <img src={c1} alt="Practice DOST" className="w-56 h-56 mx-4" />
-          </Link>
-
-          <Link
-            to="/equipment"
-            className="bg-purple-100 p-4 rounded-3xl flex items-center justify-between  shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400"
-          >
-            <div className="text-left flex-1 ml-2">
-              <h4 className="text-xl font-semibold ">equipment Suggestions</h4>
-            </div>
-            <img src={c2} alt="Connect" className="w-56 h-56 mr-32" />
-          </Link>
+          </button>
         </div>
 
         {/* Chat Button */}
         <div>
           <button
-            onClick={() => {
-              fetch("http://127.0.0.1:8000/chatbot/handle-button-click/", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ action: "click" }),
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  console.log("Response:", data);
-                  if (data.message === "Button clicked!") {
-                    // Open a new window or redirect
-                    window.open(
-                      "http://127.0.0.1:8000/chatbot/upload",
-                      "_blank"
-                    );
-                  } else {
-                    console.error("Unexpected response:", data);
-                  }
-                })
-                .catch((error) => console.error("Error:", error));
-            }}
+            onClick={() =>
+              window.open("http://127.0.0.1:8000/chatbot/upload", "_blank")
+            }
             className="fixed bottom-4 right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300"
           >
             <svg

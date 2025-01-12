@@ -16,10 +16,12 @@ from . import views
 
 urlpatterns = [
     # path('', views.dashboard, name='dashboard'),
-    path('upload/', views.upload_pdf, name='upload_pdf'),
-    path('diet/', views.process_diet_plan, name='process_diet_plan'),
-    path('summary/', views.process_summary, name='summary'),
-    path('ask_question/', views.ask_question, name='ask_question'),
+    path('chatbot/upload/', views.upload_pdf, name='upload_pdf'),
+    path('chatbot/diet/', views.process_diet_plan, name='process_diet_plan'),
+    path('chatbot/summary/', views.process_summary, name='summary'),
+    path('chatbot/ask_question/', views.ask_question, name='ask_question'),
+    path('chatbot/equipment/', views.equipment, name='equipment'),
+    
     # path('check_embedding_status/', views.check_embedding_status, name='check_embedding_status'),
     
 ]

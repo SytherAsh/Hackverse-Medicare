@@ -7,18 +7,12 @@ from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from celery import shared_task
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_groq import ChatGroq
-from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from groq import Groq
-from celery.result import AsyncResult
 import os
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -121,7 +115,7 @@ def process_diet_plan(request):
         # Generate diet plan
         completion = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
-            model="mixtral-8x7b-32768",
+            model="gemma2-9b-it",
             temperature=0.3,
         )
         
@@ -178,7 +172,7 @@ Summary:"""
         # Generate summary using Groq API
         completion = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
-            model="mixtral-8x7b-32768",
+            model="gemma2-9b-it",
             temperature=0.3,
         )
         
@@ -189,8 +183,6 @@ Summary:"""
     
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
-
-
 
 def ask_question(request):
     if request.method == 'POST':
@@ -299,3 +291,89 @@ def ask_question(request):
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Only POST method is allowed."}, status=405)
+
+@csrf_exempt
+def equipment(request):
+    """Extract content from uploaded PDF stored in session, generate a summary, and render the result."""
+    try:
+        # Step 1: Retrieve PDF name from session
+        pdf_name = request.session.get('pdf_name')
+        if not pdf_name:
+            return JsonResponse({'error': 'No PDF found in session. Please upload a PDF first.'}, status=400)
+        
+        # Step 2: Extract PDF content using get_pdf_content function
+        text_chunks = get_pdf_content(pdf_name)
+        
+        # Step 3: Generate summary using Groq API
+        load_dotenv()
+        groq_api = os.getenv("GROQ_API_KEY")
+        if not groq_api:
+            return JsonResponse({'error': 'GROQ API key not found'}, status=500)
+        
+        # Initialize Groq client
+        client = Groq(api_key=groq_api)
+        
+        # Create a prompt for summary generation
+        prompt = f"""You are a healthcare assistant chatbot designed to analyze a user's medical report and recommend suitable medical instruments and products from a predefined list. Use the following guidelines to generate your responses:
+
+    1. Understand the Input
+    Carefully analyze the user's medical report, including health conditions, test results, and medical history (e.g., diabetes, hypertension, respiratory issues, pregnancy, or injuries).
+    Identify key health indicators or conditions mentioned in the report.
+    2. Map Conditions to Products
+    Use the following rules to recommend appropriate products:
+    Diabetes: Glucometers, glucose meters and strips, diabetes care products (insulin, insulin pumps), and fiber supplements.
+    Hypertension: Blood pressure monitors, low-sodium meal replacements, and stress-relief products like aromatherapy diffusers.
+    Respiratory Issues: Nebulizers, inhalers, pulse oximeters, and air purifiers.
+    Joint or Muscle Pain: TENS units, pain relief creams and gels, heating pads, knee and ankle braces, or back support belts.
+    Injury or Recovery: Crutches, walkers, canes, wound care and dressings, ice packs, and hot packs.
+    Pregnancy and Infant Care: Pregnancy test kits, maternity and nursing pads, baby monitors, infant thermometers, diapers, and baby care creams.
+    Mental Health and Stress: Meditation tools, sound machines, stress-relief products, and CBT apps.
+    General Health: Thermometers, first aid kits, antiseptics, bandages, and weight management supplements.
+    Chronic Diseases: Compression stockings for circulation issues, stethoscopes, and home test kits (cholesterol, thyroid).
+    3. Provide Explanations
+    For each product, explain why it is recommended. Example:
+    "A glucometer is recommended to monitor your blood sugar levels regularly, especially since your report indicates a risk of diabetes."
+    "A blood pressure monitor will help you keep track of your hypertension and take preventive measures."
+    4. Recommend General Tools
+    Suggest essential items for everyone, such as a first aid kit, thermometer, antiseptics, and stress-relief products, unless contraindicated.
+    5. Disclaimers
+    Clearly mention that recommendations are based on the provided information and are not a substitute for professional medical advice. Encourage users to consult a healthcare provider.
+    6. Response Example
+    Based on your medical report, I recommend the following:
+    Blood Pressure Monitor: To regularly monitor your hypertension levels and ensure early detection of anomalies.
+    Glucometer: For keeping track of your blood sugar levels, which is essential for diabetes management.
+    Pulse Oximeter: To monitor oxygen saturation, especially if you have respiratory concerns.
+    Heating Pad: For relief from joint or muscle pain, as suggested by your condition.
+    These recommendations are for guidance only. Please consult your doctor before making any decisions.
+    7. Product List
+    The bot can recommend from the following items:
+    Foot care products (foot creams, insoles, foot massagers)
+    Hand sanitizers and wipes
+    Protein powders, fiber supplements, and meal replacements
+    Herbal supplements (turmeric, ashwagandha, ginseng)
+    Blood pressure monitors, glucometers, thermometers, pulse oximeters
+    Nebulizers, inhalers, and stethoscopes
+    Pain relief creams, ice packs, and TENS units
+    First aid kits, bandages, antiseptics, wound care products
+    Mobility aids (crutches, walkers, canes, wheelchairs)
+    Pregnancy kits, baby care products, diapers, and infant thermometers
+    Meditation tools, stress-relief products, and CBT apps
+    Home test kits for cholesterol, thyroid, STDs, and more.
+    Respond clearly, concisely, and empathetically.
+    {text_chunks}
+    Kindly provide the recommended medical equipment and products based on the user's medical report:"""
+        
+        # Generate summary using Groq API
+        completion = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model="gemma2-9b-it",
+            temperature=0.3,
+        )
+        
+        summary = completion.choices[0].message.content
+        print(summary)
+        # Step 4: Render the result in the summary.html template
+        return render(request, 'chatbot/equipment.html', {'summary': summary})
+    
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
